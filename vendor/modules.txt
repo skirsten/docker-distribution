@@ -18,8 +18,6 @@ github.com/Azure/go-autorest/autorest/adal
 # github.com/Azure/go-autorest/autorest/date v0.3.0
 ## explicit; go 1.12
 github.com/Azure/go-autorest/autorest/date
-# github.com/Azure/go-autorest/autorest/to v0.4.0
-## explicit; go 1.12
 # github.com/Azure/go-autorest/logger v0.2.1
 ## explicit; go 1.12
 github.com/Azure/go-autorest/logger
@@ -84,8 +82,6 @@ github.com/aws/aws-sdk-go/service/sts/stsiface
 # github.com/beorn7/perks v1.0.1
 ## explicit; go 1.11
 github.com/beorn7/perks/quantile
-# github.com/bitly/go-simplejson v0.5.0
-## explicit
 # github.com/bshuster-repo/logrus-logstash-hook v1.0.0
 ## explicit
 github.com/bshuster-repo/logrus-logstash-hook
@@ -108,8 +104,64 @@ github.com/denverdino/aliyungo/cdn/auth
 github.com/denverdino/aliyungo/common
 github.com/denverdino/aliyungo/oss
 github.com/denverdino/aliyungo/util
-# github.com/dnaeon/go-vcr v1.0.1
-## explicit
+# github.com/distribution/distribution/v3 v3.0.0-00010101000000-000000000000 => github.com/skirsten/docker-distribution/v3 v3.0.0-20220828143913-b5559f48adc2
+## explicit; go 1.18
+github.com/distribution/distribution/v3
+github.com/distribution/distribution/v3/configuration
+github.com/distribution/distribution/v3/context
+github.com/distribution/distribution/v3/digestset
+github.com/distribution/distribution/v3/health
+github.com/distribution/distribution/v3/health/checks
+github.com/distribution/distribution/v3/manifest
+github.com/distribution/distribution/v3/manifest/manifestlist
+github.com/distribution/distribution/v3/manifest/ocischema
+github.com/distribution/distribution/v3/manifest/schema1
+github.com/distribution/distribution/v3/manifest/schema2
+github.com/distribution/distribution/v3/metrics
+github.com/distribution/distribution/v3/notifications
+github.com/distribution/distribution/v3/reference
+github.com/distribution/distribution/v3/registry
+github.com/distribution/distribution/v3/registry/api/errcode
+github.com/distribution/distribution/v3/registry/api/v2
+github.com/distribution/distribution/v3/registry/auth
+github.com/distribution/distribution/v3/registry/auth/htpasswd
+github.com/distribution/distribution/v3/registry/auth/silly
+github.com/distribution/distribution/v3/registry/auth/token
+github.com/distribution/distribution/v3/registry/client
+github.com/distribution/distribution/v3/registry/client/auth
+github.com/distribution/distribution/v3/registry/client/auth/challenge
+github.com/distribution/distribution/v3/registry/client/transport
+github.com/distribution/distribution/v3/registry/handlers
+github.com/distribution/distribution/v3/registry/listener
+github.com/distribution/distribution/v3/registry/middleware/registry
+github.com/distribution/distribution/v3/registry/middleware/repository
+github.com/distribution/distribution/v3/registry/proxy
+github.com/distribution/distribution/v3/registry/proxy/scheduler
+github.com/distribution/distribution/v3/registry/storage
+github.com/distribution/distribution/v3/registry/storage/cache
+github.com/distribution/distribution/v3/registry/storage/cache/cachecheck
+github.com/distribution/distribution/v3/registry/storage/cache/memory
+github.com/distribution/distribution/v3/registry/storage/cache/metrics
+github.com/distribution/distribution/v3/registry/storage/cache/redis
+github.com/distribution/distribution/v3/registry/storage/driver
+github.com/distribution/distribution/v3/registry/storage/driver/azure
+github.com/distribution/distribution/v3/registry/storage/driver/base
+github.com/distribution/distribution/v3/registry/storage/driver/factory
+github.com/distribution/distribution/v3/registry/storage/driver/filesystem
+github.com/distribution/distribution/v3/registry/storage/driver/gcs
+github.com/distribution/distribution/v3/registry/storage/driver/inmemory
+github.com/distribution/distribution/v3/registry/storage/driver/middleware
+github.com/distribution/distribution/v3/registry/storage/driver/middleware/alicdn
+github.com/distribution/distribution/v3/registry/storage/driver/middleware/cloudfront
+github.com/distribution/distribution/v3/registry/storage/driver/middleware/redirect
+github.com/distribution/distribution/v3/registry/storage/driver/oss
+github.com/distribution/distribution/v3/registry/storage/driver/s3-aws
+github.com/distribution/distribution/v3/registry/storage/driver/swift
+github.com/distribution/distribution/v3/registry/storage/driver/testdriver
+github.com/distribution/distribution/v3/registry/storage/driver/testsuites
+github.com/distribution/distribution/v3/testutil
+github.com/distribution/distribution/v3/uuid
+github.com/distribution/distribution/v3/version
 # github.com/docker/go-events v0.0.0-20190806004212-e31b211e4f1c
 ## explicit
 github.com/docker/go-events
@@ -168,8 +220,6 @@ github.com/matttproud/golang_protobuf_extensions/pbutil
 # github.com/mitchellh/mapstructure v1.1.2
 ## explicit
 github.com/mitchellh/mapstructure
-# github.com/mitchellh/osext v0.0.0-20151018003038-5e2d6d41470f
-## explicit
 # github.com/ncw/swift v1.0.47
 ## explicit
 github.com/ncw/swift
@@ -388,4 +438,4 @@ gopkg.in/check.v1
 # gopkg.in/yaml.v2 v2.4.0
 ## explicit; go 1.15
 gopkg.in/yaml.v2
-# github.com/distribution/distribution/v3 => github.com/skirsten/docker-distribution/v3 v3.0.0-20220822034424-3413bf8e14fd
+# github.com/distribution/distribution/v3 => github.com/skirsten/docker-distribution/v3 v3.0.0-20220828143913-b5559f48adc2
