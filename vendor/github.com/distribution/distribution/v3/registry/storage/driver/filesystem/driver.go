@@ -250,6 +250,31 @@ func (d *driver) List(ctx context.Context, subPath string) ([]string, error) {
 	return keys, nil
 }
 
+// https://gist.github.com/var23rav/23ae5d0d4d830aff886c3c970b8f6c6b
+func MoveFile(sourcePath, destPath string) error {
+	inputFile, err := os.Open(sourcePath)
+	if err != nil {
+		return err
+	}
+	outputFile, err := os.Create(destPath)
+	if err != nil {
+		inputFile.Close()
+		return err
+	}
+	defer outputFile.Close()
+	_, err = io.Copy(outputFile, inputFile)
+	inputFile.Close()
+	if err != nil {
+		return err
+	}
+	// The copy was successful, so now delete the original file
+	err = os.Remove(sourcePath)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
 // Move moves an object stored at sourcePath to destPath, removing the original
 // object.
 func (d *driver) Move(ctx context.Context, sourcePath string, destPath string) error {
@@ -265,6 +290,9 @@ func (d *driver) Move(ctx context.Context, sourcePath string, destPath string) e
 	}
 
 	err := os.Rename(source, dest)
+	if err != nil {
+		err = MoveFile(source, dest)
+	}
 	return err
 }
 
