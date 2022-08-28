@@ -62,7 +62,7 @@ func getOutstandingUploads(ctx context.Context, driver storageDriver.StorageDriv
 	uploads := make(map[string]uploadData)
 
 	inUploadDir := false
-	root, err := pathFor(repositoriesRootPathSpec{})
+	root, err := pathFor(uploadsRootPathSpec{})
 	if err != nil {
 		return uploads, append(errors, err)
 	}

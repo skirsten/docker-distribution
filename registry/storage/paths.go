@@ -11,6 +11,7 @@ import (
 const (
 	storagePathVersion = "v2"                // fixed storage layout version
 	storagePathRoot    = "/docker/registry/" // all driver paths have a prefix
+	uploadsPathRoot    = "/docker/uploads/"  // all driver paths have a prefix
 
 	// TODO(stevvooe): Get rid of the "storagePathRoot". Initially, we though
 	// storage path root would configurable for all drivers through this
@@ -119,6 +120,7 @@ func pathFor(spec pathSpec) (string, error) {
 	// other version.
 
 	rootPrefix := []string{storagePathRoot, storagePathVersion}
+	uploadsPrefix := []string{uploadsPathRoot, storagePathVersion}
 	repoPrefix := append(rootPrefix, "repositories")
 
 	switch v := spec.(type) {
@@ -231,17 +233,20 @@ func pathFor(spec pathSpec) (string, error) {
 		return path.Join(append(blobPathPrefix, components...)...), nil
 
 	case uploadDataPathSpec:
-		return path.Join(append(repoPrefix, v.name, "_uploads", v.id, "data")...), nil
+		return path.Join(append(uploadsPrefix, v.name, "_uploads", v.id, "data")...), nil
 	case uploadStartedAtPathSpec:
-		return path.Join(append(repoPrefix, v.name, "_uploads", v.id, "startedat")...), nil
+		return path.Join(append(uploadsPrefix, v.name, "_uploads", v.id, "startedat")...), nil
 	case uploadHashStatePathSpec:
 		offset := fmt.Sprintf("%d", v.offset)
 		if v.list {
 			offset = "" // Limit to the prefix for listing offsets.
 		}
-		return path.Join(append(repoPrefix, v.name, "_uploads", v.id, "hashstates", string(v.alg), offset)...), nil
+		return path.Join(append(uploadsPrefix, v.name, "_uploads", v.id, "hashstates", string(v.alg), offset)...), nil
 	case repositoriesRootPathSpec:
 		return path.Join(repoPrefix...), nil
+	case uploadsRootPathSpec:
+		return path.Join(uploadsPrefix...), nil
+
 	default:
 		// TODO(sday): This is an internal error. Ensure it doesn't escape (panic?).
 		return "", fmt.Errorf("unknown path spec: %#v", v)
@@ -435,6 +440,12 @@ type repositoriesRootPathSpec struct {
 }
 
 func (repositoriesRootPathSpec) pathSpec() {}
+
+// uploadsRootPathSpec returns the root of uploads
+type uploadsRootPathSpec struct {
+}
+
+func (uploadsRootPathSpec) pathSpec() {}
 
 // digestPathComponents provides a consistent path breakdown for a given
 // digest. For a generic digest, it will be as follows:
